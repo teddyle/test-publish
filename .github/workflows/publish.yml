@@ -3,6 +3,7 @@ name: publish
 on: [push]
 
 jobs:
+  permissions: write-all
   publish-hello-docker-image:
     runs-on: ubuntu-latest
     steps:
@@ -16,7 +17,6 @@ jobs:
           username: teddyle
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the hello-docker Docker image
-        permissions: write-all
         run: |
           docker build . --tag ghcr.io/teddyle/test-publish:latest
           docker run ghcr.io/teddyle/test-publish:latest
