@@ -3,8 +3,8 @@ name: publish
 on: [push]
 
 jobs:
-  permissions: write-all
   publish-hello-docker-image:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
