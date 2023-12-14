@@ -19,7 +19,7 @@ jobs:
       - name: Build the hello-docker Docker image
         run: |
           docker pull smartbcity/delivery-api-gateway:1.18.28
-          docker push ghcr.io/teddyle/test-publish:1.18.28
+          docker push ghcr.io/teddyle/test-publish:latest
 #          docker build . --tag ghcr.io/teddyle/test-publish:latest
 #          docker run ghcr.io/teddyle/test-publish:latest
 #          docker push ghcr.io/teddyle/test-publish:latest
