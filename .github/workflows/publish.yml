@@ -28,7 +28,9 @@ jobs:
         run: |
           for i in $TAGS
           do
-            docker pull "$SOURCE_IMAGE:$i"
-            docker image tag "$SOURCE_IMAGE:$i" "$RECIPIENT_IMAGE:$i"
-            docker image push "$RECIPIENT_IMAGE:$i"
+            echo "$i"
+            echo "$SOURCE_IMAGE:$i"
+#            docker pull "$SOURCE_IMAGE:$i"
+#            docker image tag "$SOURCE_IMAGE:$i" "$RECIPIENT_IMAGE:$i"
+#            docker image push "$RECIPIENT_IMAGE:$i"
           done
