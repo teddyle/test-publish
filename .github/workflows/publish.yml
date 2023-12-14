@@ -5,7 +5,7 @@ on: [push]
 env:
   SOURCE_IMAGE: smartbcity/delivery-api-gateway
   RECIPIENT_IMAGE: ghcr.io/teddyle/test-publish
-  TAGS: ("1.18.26" "experimental")
+  TAGS: ["test", "test2"]
 
 
 
@@ -14,23 +14,31 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      # Uses the `docker/login-action` action to log in to the Container registry registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
-      - name: Log in to the Container registry
-        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-        with:
-          registry: ghcr.io
-          username: teddyle
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Pull and push images
+      - name: Mendax Loop through numbers
         id: loop
+        run: |
+          for i in 1 2 3 4 5
+          do
+            echo "Mendax Current number: $i"
+          done
+      - name: Mendax Loop through numbers
+        id: loop2
         run: |
           for i in $TAGS
           do
-            echo "$i"
-            echo "$SOURCE_IMAGE:$i"
-#            docker pull "$SOURCE_IMAGE:$i"
-#            docker image tag "$SOURCE_IMAGE:$i" "$RECIPIENT_IMAGE:$i"
-#            docker image push "$RECIPIENT_IMAGE:$i"
+            echo "Mendax Current number: $i"
           done
+#      - name: Checkout repository
+#        uses: actions/checkout@v4
+#      # Uses the `docker/login-action` action to log in to the Container registry registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
+#      - name: Log in to the Container registry
+#        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+#        with:
+#          registry: ghcr.io
+#          username: teddyle
+#          password: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Build the hello-docker Docker image
+#        run: |
+#          docker pull smartbcity/delivery-api-gateway:1.18.28
+#          docker image tag smartbcity/delivery-api-gateway:1.18.28 ghcr.io/teddyle/test-publish:1.18.28
+#          docker image push ghcr.io/teddyle/test-publish:1.18.28
