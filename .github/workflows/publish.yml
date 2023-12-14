@@ -24,6 +24,7 @@ jobs:
           username: teddyle
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Pull and push images
+        id: loop
         run: |
           for i in $TAGS
           do
