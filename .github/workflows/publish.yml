@@ -5,7 +5,7 @@ on: [push]
 env:
   SOURCE_IMAGE: smartbcity/delivery-api-gateway
   RECIPIENT_IMAGE: ghcr.io/teddyle/test-publish
-  TAGS: ("test" "test2")
+  TAGS: "test" "test2"
 
 
 
@@ -30,7 +30,8 @@ jobs:
         run: |
           for i in $TAGS
           do
-            echo "Mendax Current number: $i"
+            
+            echo "Mendax Current number: $SOURCE_IMAGE:$i"
           done
 #      - name: Build the hello-docker Docker image
 #        run: |
