@@ -6,7 +6,7 @@ env:
   SOURCE_IMAGE: smartbcity/delivery-api-gateway
   RECIPIENT_IMAGE: ghcr.io/teddyle/test-publish
   TAGS: ( "test" "test2" )
-  TEST_OS_VERSION: ["ubuntu", "ubuntu-20.04"]
+#  TEST_OS_VERSION: ["ubuntu", "ubuntu-20.04"]
 
 
 
@@ -29,7 +29,7 @@ jobs:
       - name: Pull and push
         id: loop2
         run: |
-          for i in ${{ vars.TEST_OS_VERSIONS }}
+          for i in ${{ fromJSON(vars.TAGS) }}
           do
             
             echo "$SOURCE_IMAGE:$i"
