@@ -5,7 +5,7 @@ on: [push]
 env:
   SOURCE_IMAGE: smartbcity/delivery-api-gateway
   RECIPIENT_IMAGE: ghcr.io/teddyle/test-publish
-  TAGS: "1.18.26" "experimental"
+  TAGS: ("1.18.26" "experimental")
 
 
 
