@@ -5,7 +5,7 @@ on: [push]
 env:
   SOURCE_IMAGE: smartbcity/delivery-api-gateway
   RECIPIENT_IMAGE: ghcr.io/teddyle/test-publish
-  TAGS: ("test" "test2")
+  TAGS: ( "test" "test2" )
 
 
 
